@@ -1,4 +1,4 @@
-# Analysis of League of Legends Competitive Matches (2022)
+# Unveiling "Buffness": An Analysis of Renekton's Impact in the League of Legends World Championships 2022
 
 ### DSC 80 Project
 ***Katelyn Abille and Aneesh Pamula***

@@ -1,16 +1,10 @@
 ---
 ---
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-weight: normal;
-    color: #000000;
-  }
+// Text
+$section-headings-color: #000000 !default;
+$body-text-color: #606c71 !default;
+$body-link-color: #1e6bb8 !default;
+$blockquote-text-color: #819198 !default;
 
 @import "cayman";

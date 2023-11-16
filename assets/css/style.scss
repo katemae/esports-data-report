@@ -7,10 +7,16 @@ $body-text-color: #606c71 !default;
 $body-link-color: #1e6bb8 !default;
 $blockquote-text-color: #819198 !default;
 
+// Headers
+$header-heading-color: #fff !default;
+$header-bg-color: #84b9ed !default;
+$header-bg-color-secondary: #155799 !default;
+
 .title-and-image {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: left;
 }
 
 @import "cayman";

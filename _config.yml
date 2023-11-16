@@ -1,4 +1,4 @@
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
-title: "Unveiling “Buffness”: An Analysis of Renekton’s Impact in the League of Legends World Championships 2022"
+title: "Buffed for Worlds, or just a myth? An Analysis of Renekton's Presence During the 2022 Season of Professional League of Legends"

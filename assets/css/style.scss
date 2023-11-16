@@ -17,12 +17,12 @@ $header-bg-color-secondary: #0A323C !default;
   justify-content: space-between;
   align-items: center;
   text-align: left;
-  background-size: cover;
 }
 
 .page-header {
   background-image: url("../img/new_renekton.jpg") !important;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @import "cayman";

@@ -1,5 +1,3 @@
-# Analysis of League of Legends Competitive Matches (2022)
-
 ### DSC 80 Project
 ***Katelyn Abille and Aneesh Pamula***
 

@@ -19,4 +19,8 @@ $header-bg-color-secondary: #0A323C !default;
   text-align: left;
 }
 
+.page-header {
+  background-image: url("../img/renekton.jpg");
+}
+
 @import "cayman";

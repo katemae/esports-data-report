@@ -60,13 +60,19 @@ The columns in our cleaned data set are:
 
 ### **Interesting Aggregates** <a name="aggr">
 
-| teamname                |   False |   True |
-|:------------------------|--------:|-------:|
-| 100 Thieves             |      40 |      3 |
-| 100 Thieves Academy     |      66 |      2 |
-| 100 Thieves Next        |      58 |      1 |
-| 1907 Fenerbahçe Academy |       2 |      0 |
-| 300                     |       5 |      0 |
+| teamname                  |   False |   True |
+|:--------------------------|--------:|-------:|
+| 100 Thieves               |      40 |      3 |
+| 100 Thieves Academy       |      66 |      2 |
+| 100 Thieves Next          |      58 |      1 |
+| 1907 Fenerbahçe Academy   |       2 |      0 |
+| 300                       |       5 |    nan |
+| ...                       |     ... |    ... |
+| paiN Gaming Academy       |      40 |      2 |
+| piratesports              |       2 |      0 |
+| unknown team              |     152 |      8 |
+| İstanbul Wildcats         |      40 |      2 |
+| İstanbul Wildcats Academy |      25 |      1 |
 
 ## **Assessment of Missingness** <a name="missingness"></a>
 test text

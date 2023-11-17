@@ -13,11 +13,11 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
     b. [Univariate Analysis](#uni_analysis) <br>
     c. [Bivariate Analysis](#bi_analysis) <br>
     d. [Interesting Aggregates](#aggr)
-5. [Assessment of Missingness](#missingness) <br>
+5. [Assessment of Missingness](#assess_missingness) <br>
     a. [NMAR Analysis](#NMAR) <br>
     b. [Missingness Dependency](#missingness) <br>
-        <p> i.  [Reject the Null](#reject_null) <br>
-        ii. [Fail to Reject the Null](#fail_reject_null) </p>
+&nbsp;  i.  [Reject the Null](#reject_null) <br>
+&nbsp;  ii. [Fail to Reject the Null](#fail_reject_null)
 6. [Hypothesis Testing](#hypothesis)
 
 ## **Introduction** <a name="introduction"></a>
@@ -111,8 +111,15 @@ The columns in our cleaned data set are:
 | İstanbul Wildcats         |      40 |      2 |
 | İstanbul Wildcats Academy |      25 |      1 |
 
-## **Assessment of Missingness** <a name="missingness"></a>
-test text
+## **Assessment of Missingness** <a name="assess_missingness"></a>
+
+### **NMAR Analysis** <a name="NMAR"></a>
+
+### **Missingness Dependencys** <a name="missingness"></a>
+
+#### **Reject the Null** <a name="reject_null"></a>
+
+#### **Fail to Reject the Null** <a name="fail_reject_null"></a>
 
 
 ## **Hypothesis Testing** <a name="hypothesis"></a>

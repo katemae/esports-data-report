@@ -112,16 +112,52 @@ The columns in our cleaned data set are:
 | İstanbul Wildcats Academy |      25 |      1 |
 
 ## **Assessment of Missingness** <a name="assess_missingness"></a>
+explain importance of missingness analysis/types of misssingness
 
 ### **NMAR Analysis** <a name="NMAR"></a>
 
 ### **Missingness Dependencys** <a name="missingness"></a>
+explain our null vs alt hypothesis
 
 #### **Reject the Null** <a name="reject_null"></a>
 
+**Comparing missingness of `'playerid'` to `'league'`**
+
+| league   |   playerid_missing = False |   playerid_missing = True |
+|:---------|---------------------------:|--------------------------:|
+| CBLOL    |                 0.0198641  |                0.0179541  |
+| CBLOLA   |                 0.017657   |                0.0159592  |
+| CDF      |                 0.00579575 |                0.00616942 |
+| CT       |                 0.00197824 |                0.00258598 |
+| DCup     |                 0.00473306 |                0.0127452  |
+|      ... |                        ... |                       ... |
+| UL       |                 0.0227252  |                0.0205401  |
+| UPL      |                 0.0327554  |                0.0346152  |
+| VCS      |                 0.0261749  |                0.0248993  |
+| VL       |                 0.0128504  |                0.0172891  |
+| WLDs     |                 0.0126705  |                0.0114522  |
+
+<iframe src="assets/fig/league_dist_fig.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig/league_id_missingness.html" width=800 height=600 frameBorder=0></iframe>
+
 #### **Fail to Reject the Null** <a name="fail_reject_null"></a>
 
+**Compare missingness of `playerid` to `side`**
+
+| side   |   playerid_missing = False |   playerid_missing = True |
+|:-------|---------------------------:|--------------------------:|
+| Blue   |                   0.499931 |                  0.500314 |
+| Red    |                   0.500069 |                  0.499686 |
+
+<iframe src="assets/fig/side_dist_fig.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig/side_id_missingness.html" width=800 height=600 frameBorder=0></iframe>
 
 ## **Hypothesis Testing** <a name="hypothesis"></a>
-test text
+
+<iframe src="assets/fig/overall_ht.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig/hyp_testing.html" width=800 height=600 frameBorder=0></iframe>
+
 

@@ -8,9 +8,13 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
 1. [Introduction](#introduction) <br>
     a. [Description of Raw Data](#data_desc) <br>
     b. [Description of Columns](#col_desc)
-3. [Cleaning and EDA](#cleaning)
-4. [Assessment of Missingness](#missingness)
-5. [Hypothesis Testing](#hypothesis)
+3. [Cleaning and EDA](#cleaning) <br>
+    a. [Data Cleaning](#data_clean) <br>
+    b. [Univariate Analysis](#uni_analysis) <br>
+    c. [Bivariate Analysis](#bi_analysis) <br>
+    d. [Interesting Aggregates](#aggr)
+5. [Assessment of Missingness](#missingness)
+6. [Hypothesis Testing](#hypothesis)
 
 ## **Introduction** <a name="introduction"></a>
 League of Legends is a game with an extremely diverse cast of characters or "champions," each with their own strengths. Some have very high damage, but lack defenses. Some do not deal as much damage, but are very durable and have a variety of disruption tools. Certain champions have characteristics that make them very strong when played in a coordinated team setting. For example, Jinx can output a massive amount of damage from a long distance, but she often requires her teammates to protect her since she can be killed very quickly. Such champions are picked very often by professional players, who can rely on their teammates to coordinate with them.
@@ -32,8 +36,26 @@ For the purposes of our analysis, we will not be using a majority of these colum
 
 
 ## **Cleaning and EDA** <a name="cleaning"></a>
-test text
+### **Data Cleaning** <a name="data_clean">
 
+### **Univariate Analysis** <a name="uni_analysis">
+
+### **Bivariate Analysis** <a name="bi_analysis">
+
+### **Interesting Aggregates** <a name="aggr">
+| teamname                  |   False |   True |
+|:------------------------  |--------:|-------:|
+| 100 Thieves               |      40 |      3 |
+| 100 Thieves Academy       |      66 |      2 |
+| 100 Thieves Next          |      58 |      1 |
+| 1907 Fenerbahçe Academy   |       2 |      0 |
+| 300                       |       5 |    nan |
+| ...                       |     ... |    ... |
+| paiN Gaming Academy       |      40 |      2 |
+| piratesports              |       2 |      0 |
+| unknown team              |     152 |      8 |
+| İstanbul Wildcats         |      40 |      2 |
+| İstanbul Wildcats Academy |      25 |      1 |
 
 ## **Assessment of Missingness** <a name="missingness"></a>
 test text

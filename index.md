@@ -67,7 +67,6 @@ The columns in our cleaned data set are:
 | 149395 | 9687-9687_game_5      | DCup     | nan     |          0 | 2022-12-27 12:43:43 |   12.23 | Red    | mid        | Yagao        | oe:player:4860d1660ce45bd15a600953309135c | Bilibili Gaming          | oe:team:d356a144644879dabb5f34cd99c886d | Ahri       | K'Sante | Syndra  | Lucian | Gwen   | Sylas  |         1778 |     1 |
 | 149396 | 9687-9687_game_5      | DCup     | nan     |          0 | 2022-12-27 12:43:43 |   12.23 | Red    | bot        | Elk          | oe:player:a58a0d41103cdc5b58cbb547eeaca2d | Bilibili Gaming          | oe:team:d356a144644879dabb5f34cd99c886d | Varus      | K'Sante | Syndra  | Lucian | Gwen   | Sylas  |         1778 |     1 |
 | 149397 | 9687-9687_game_5      | DCup     | nan     |          0 | 2022-12-27 12:43:43 |   12.23 | Red    | sup        | ON           | oe:player:90651ebea9a35ec4e018c8157492e17 | Bilibili Gaming          | oe:team:d356a144644879dabb5f34cd99c886d | Ashe       | K'Sante | Syndra  | Lucian | Gwen   | Sylas  |         1778 |     1 |
-league
 
 ### **Univariate Analysis** <a name="uni_analysis">
 

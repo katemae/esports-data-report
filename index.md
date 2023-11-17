@@ -13,7 +13,11 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
     b. [Univariate Analysis](#uni_analysis) <br>
     c. [Bivariate Analysis](#bi_analysis) <br>
     d. [Interesting Aggregates](#aggr)
-5. [Assessment of Missingness](#missingness)
+5. [Assessment of Missingness](#missingness) <br>
+    a. [NMAR Analysis](#NMAR) <br>
+    b. [Missingness Dependency](#missingness) <br>
+        <p> i.  [Reject the Null](#reject_null) <br>
+        ii. [Fail to Reject the Null](#fail_reject_null) </p>
 6. [Hypothesis Testing](#hypothesis)
 
 ## **Introduction** <a name="introduction"></a>

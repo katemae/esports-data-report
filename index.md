@@ -5,8 +5,8 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
 
 
 ### Table of contents
-1. [Introduction](#introduction)
-    a. [Description of Raw Data](#data_desc)
+1. [Introduction](#introduction) <br>
+    a. [Description of Raw Data](#data_desc) <br>
     b. [Description of Columns](#col_desc)
 3. [Cleaning and EDA](#cleaning)
 4. [Assessment of Missingness](#missingness)

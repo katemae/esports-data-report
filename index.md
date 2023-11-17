@@ -72,7 +72,24 @@ The columns in our cleaned data set are:
 
 <iframe src="assets/fig/champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+<iframe src="assets/fig/top_champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig/bot_champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
+
+[comment]: <> (Feel free to remove this plot)
+<iframe src="assets/fig/game_times_fig.html" width=800 height=600 frameBorder=0></iframe>
+
 ### **Bivariate Analysis** <a name="bi_analysis">
+
+[comment]: <> (Feel free to remove this plot)
+<iframe src="assets/fig/patch_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig/champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig/top_champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig/bot_champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
+
 
 ### **Interesting Aggregates** <a name="aggr">
 

@@ -70,6 +70,8 @@ The columns in our cleaned data set are:
 
 ### **Univariate Analysis** <a name="uni_analysis">
 
+<iframe src="assets/fig/champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
+
 ### **Bivariate Analysis** <a name="bi_analysis">
 
 ### **Interesting Aggregates** <a name="aggr">

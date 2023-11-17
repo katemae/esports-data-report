@@ -73,7 +73,7 @@ The columns in our cleaned data set are:
 
 ### **Interesting Aggregates** <a name="aggr">
 | teamname                  |   False |   True |
-|:------------------------  |--------:|-------:|
+|:--------------------------|--------:|-------:|
 | 100 Thieves               |      40 |      3 |
 | 100 Thieves Academy       |      66 |      2 |
 | 100 Thieves Next          |      58 |      1 |

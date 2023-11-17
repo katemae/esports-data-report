@@ -97,19 +97,52 @@ The columns in our cleaned data set are:
 
 ### **Interesting Aggregates** <a name="aggr">
 
+**Won With Renekton Count**
+
 | teamname                  |   False |   True |
 |:--------------------------|--------:|-------:|
 | 100 Thieves               |      40 |      3 |
 | 100 Thieves Academy       |      66 |      2 |
 | 100 Thieves Next          |      58 |      1 |
 | 1907 Fenerbahçe Academy   |       2 |      0 |
-| 300                       |       5 |    nan |
+| 300                       |       5 |      0 |
 | ...                       |     ... |    ... |
 | paiN Gaming Academy       |      40 |      2 |
 | piratesports              |       2 |      0 |
 | unknown team              |     152 |      8 |
 | İstanbul Wildcats         |      40 |      2 |
 | İstanbul Wildcats Academy |      25 |      1 |
+
+**Picked Renekton Count**
+
+| teamname                  |   False |   True |
+|:--------------------------|--------:|-------:|
+| 100 Thieves               |      71 |      5 |
+| 100 Thieves Academy       |     113 |      4 |
+| 100 Thieves Next          |      76 |      1 |
+| 1907 Fenerbahçe Academy   |       2 |      1 |
+| 300                       |      12 |      0 |
+| ...                       |     ... |    ... |
+| paiN Gaming Academy       |      53 |      2 |
+| piratesports              |       7 |      1 |
+| unknown team              |     281 |     13 |
+| İstanbul Wildcats         |      57 |      6 |
+| İstanbul Wildcats Academy |      39 |      4 |
+
+**Renekton Win Rate**
+| teamname                  |    False |       True |
+|:--------------------------|---------:|-----------:|
+| 100 Thieves               | 0.56338  |   0.6      |
+| 100 Thieves Academy       | 0.584071 |   0.5      |
+| 100 Thieves Next          | 0.763158 |   1        |
+| 1907 Fenerbahçe Academy   | 1        |   0        |
+| 300                       | 0.416667 | nan        |
+| ...                       |      ... |        ... |
+| paiN Gaming Academy       | 0.754717 |   1        |
+| piratesports              | 0.285714 |   0        |
+| unknown team              | 0.540925 |   0.615385 |
+| İstanbul Wildcats         | 0.701754 |   0.333333 |
+| İstanbul Wildcats Academy | 0.641026 |   0.25     |
 
 ## **Assessment of Missingness** <a name="assess_missingness"></a>
 explain importance of missingness analysis/types of misssingness

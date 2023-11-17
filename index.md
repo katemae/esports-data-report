@@ -1,30 +1,45 @@
 ### DSC 80 Project
-***Katelyn Abille and Aneesh Pamula***
+***By Katelyn Abille and Aneesh Pamula*** <br> <br>
+Curated by students of DSC 80, this academic project is intended to demonstrate the process of cleaning and performing exploratory data analysis, assessing missingness, and conducting permutation tests. Our website stands as a holistic report of these findings.
+<br> <br> 
+
 
 ### Table of contents
 1. [Introduction](#introduction)
-2. [Cleaning and EDA](#cleaning)
-3. [Assessment of Missingness](#missingness)
-4. [Hypothesis Testing](#hypothesis)
 
-## Introduction <a name="introduction"></a>
-League of Legends is a game with an extremely diverse cast of characters or "champions", each with their own strengths. Some have very high damage, but lack defenses. Some do not deal as much damage, but are very durable and have a variety of disruption tools. Certain champions have characteristics that make them very strong when played in a coordinated team setting. For example, Jinx can output a massive amount of damage from a long distance, but she often requires her teammates to protect her since she can be killed very quickly. Such champions are picked very often by professional players, who can rely on their teammates to coordinate with them.
+    a. [Description of Raw Data](#data_desc)
+   
+    b. [Description of Columns](#col_desc)
+3. [Cleaning and EDA](#cleaning)
+4. [Assessment of Missingness](#missingness)
+5. [Hypothesis Testing](#hypothesis)
 
-
-ANother one of these champions that is picked rather often in professional play is Renekton. With his great early game strength, high mobility, and a reliable immobilization tool, Renekton is a champion that many players have come to think of as a "pro play champion"; that is, one can expect to see Renekton fairly often when watching professional games.
-
-
-A somewhat popular joke among League players is that such "pro play champions" are often buffed, or made stronger, in the patches leading up to the World Championships in the late fall. This idea stems from the idea that Riot Games (the publishers and developers of League of Legends) would want to buff champions that people are expecting to see at the World Championships, thus leading to a more engaging experience and increased viewership. In this project, we will examine whether this sentiment is true with regards to Renekton in 2022.
-
-### Description of Data
-In order to 
+## **Introduction** <a name="introduction"></a>
+League of Legends is a game with an extremely diverse cast of characters or "champions," each with their own strengths. Some have very high damage, but lack defenses. Some do not deal as much damage, but are very durable and have a variety of disruption tools. Certain champions have characteristics that make them very strong when played in a coordinated team setting. For example, Jinx can output a massive amount of damage from a long distance, but she often requires her teammates to protect her since she can be killed very quickly. Such champions are picked very often by professional players, who can rely on their teammates to coordinate with them.
 
 
-## Cleaning and EDA <a name="cleaning"></a>
+Another one of these champions that is picked rather often in professional play is Renekton. With his great early game strength, high mobility, and a reliable immobilization tool, Renekton is a champion that many players have come to think of as a "pro play champion;" that is, one can expect to see Renekton fairly often when watching professional games.
+
+
+A somewhat popular joke among League players is that such "pro play champions" are often buffed, or made stronger, in the patches leading up to the World Championships in the late fall. This idea stems from the idea that Riot Games (the publishers and developers of League of Legends) would want to buff champions that people are expecting to see at the World Championships, thus leading to a more engaging experience and increased viewership. In this project, we will examine whether this sentiment is true with regards to Renekton in 2022. Thus, we will be answering the question:
+**Is the champion Renekton "buffed" for World Championships?**
+
+### **Description of Raw Data** <a name="data_desc"></a>
+In order to answer this question, we will be focusing on data from the 2022 League of Legends competitive matches provided by [Oracle's Elixir](https://oracleselixir.com/). The raw data set includes 123 columns of game statistics ranging from first bloods to kill-to-death ratio, with every 6 rows being data for the 5 players in every team plus a row for team aggregate statistics and every 12 rows being statistics for two teams going head to head in one game. This goes on for a total of 149,400 rows corresponding to 12,450 different competitive matches!
+
+### **Description of Columns** <a name="col_desc"></a>
+
+
+
+## **Cleaning and EDA** <a name="cleaning"></a>
 test text
 
-## Assessment of Missingness <a name="missingness"></a>
+
+## **Assessment of Missingness** <a name="missingness"></a>
 test text
 
-## Hypothesis Testing <a name="hypothesis"></a>
+
+## **Hypothesis Testing** <a name="hypothesis"></a>
+test text
+
 test text

@@ -33,6 +33,35 @@ For the purposes of our analysis, we will not be using a majority of these colum
 
 ### **Description of Columns** <a name="col_desc"></a>
 
+The columns in our cleaned data set are: 
+
+* `'gameid'` : The unique ID assigned to every professional League game that is played.
+
+* `'league'` : The league that the game was played in. This typically corresponds to region; for example, LCS is the tier 1 league for North America, and LCK is the tier 1 league for South Korea.
+
+* `'date'` : The date that the game was played on.
+
+* `'patch'` : The patch, or version, of the game that the game was played on.
+
+* `'side'` The side of the map (blue or red) that the player's team was playing on.
+
+* `'position'` : The position that the player was playing in. This could be 'top', 'jng' (short for 'jungle'), 'mid', 'bot' (short for 'bottom'),  or 'sup' (short for 'support')
+
+* `'playername'` : The IGN (in-game name) of the player.
+
+* `'playerid'` : The unique ID corresponding to the player.
+
+* `'teamname'` : The name of the player's team at the time the game was played.
+
+* `'teamid'` : The unique ID corresponding to the player's team.
+
+* `'champion'` : The champion, or character, that the player was playing as.
+
+* `'ban1'` - `'ban5'`: The 5 champions that the player's team chose to ban.
+
+* `'gamelength'` : The length of the game, in seconds.
+
+* `'win'` : Originally `'result'` in the raw data, represents whether the team won the game.
 
 
 ## **Cleaning and EDA** <a name="cleaning"></a>

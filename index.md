@@ -16,7 +16,7 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
 5. [Assessment of Missingness](#assess_missingness) <br>
     a. [NMAR Analysis](#NMAR) <br>
     b. [Missingness Dependency](#missingness) <br>
-&nbsp;  i.  [Reject the Null](#reject_null) <br>
+&nbsp;  i.  [Comparing Missingness of `'playerid'` to `'league'`](#reject_null) <br>
 &nbsp;  ii. [Fail to Reject the Null](#fail_reject_null)
 6. [Hypothesis Testing](#hypothesis)
 
@@ -29,7 +29,7 @@ Another one of these champions that is picked rather often in professional play 
 
 A somewhat popular joke among League players is that such "pro play champions" are often buffed, or made stronger, in the patches leading up to the World Championships in the late fall. This idea stems from the idea that Riot Games (the publishers and developers of League of Legends) would want to buff champions that people are expecting to see at the World Championships, thus leading to a more engaging experience and increased viewership. In this project, we will examine whether this sentiment is true with regards to Renekton in 2022. Thus, we will be answering the question: <br>
 
-####**Is the champion Renekton "buffed" for World Championships?**
+#### **Is the champion Renekton "buffed" for World Championships?**
 
 ### **Description of Raw Data** <a name="data_desc"></a>
 In order to answer this question, we will be using data from the 2022 League of Legends competitive matches provided by [Oracle's Elixir](https://oracleselixir.com/). The raw data set includes 123 columns of game statistics ranging from first bloods to kill and death counts, with every 12 rows being data for two teams going head to head in one game. These 12 rows can also be broken down into two groups of 6 rows, each of which consists of individual statistics for the 5 players in a team plus a row for team aggregate statistics over that game, and this goes on for a total of 149,400 rows corresponding to 12,450 different competitive matches!
@@ -42,7 +42,7 @@ The columns in our cleaned data set are:
 
 * `'gameid'` : The unique ID assigned to every professional League game that is played.
 * `'league'` : The league that the game was played in. This typically corresponds to region; for example, LCS is the tier 1 league for North America, and LCK is the tier 1 league for South Korea.
-* `'date'` : The date that the game was played on.
+* `'date'` : The date that the game was played on, formatted as 'YYYY-MM-DD HH:MM:SS'
 * `'patch'` : The patch, or version, of the game that the game was played on.
 * `'side'` The side of the map (blue or red) that the player's team was playing on.
 * `'position'` : The position that the player was playing in. This could be 'top', 'jng' (short for 'jungle'), 'mid', 'bot' (short for 'bottom'),  or 'sup' (short for 'support')
@@ -83,19 +83,20 @@ We can look at the counts of each value in the `'champions'` column to see which
 
 <iframe src="assets/fig/champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
-League of Legends has over 160 playable champions, which makes this graph rather difficult to read. To make it simpler, let's look at only the fifteen most and least picked champions.
+League of Legends has over 160 playable champions, which makes this graph rather difficult to read. To make it simpler, let's look at only the 15 most and least picked champions.
 
-The graph displaying the 15 most picked champions cna be seen here:
+The graph displaying the 15 most picked champions can be seen here:
 <iframe src="assets/fig/top_champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
-And the graph displaying the 15 least picked champions cna be seen here:
+And the graph displaying the 15 least picked champions can be seen here:
 <iframe src="assets/fig/bot_champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
 These graphs shows that champions such as Nautilus and Jinx were picked very often, possibly alluding to their overall strength in pro games. Meanwhile, champions such as Warwick and Teemo are not picked very often. Our main focus, Renekton, sits around the middle of the graph.
 
-<br>
-
 However, it must be noted that simply the pick rate of a champion does not on its own correlate to their strength. Many times, popular champions will be "banned" from being chosen, so to examine the overall prescence of any given champion, we can look at a different statistic that takes this into account (but we will get to this later, during the hypothesis testing section).
+
+<br>
+<br>
 
 Next, we can examine how long pro League games usually go on for.
 
@@ -111,27 +112,33 @@ We can also take a look at the distribution of games played on each patch.
 
 Patches are modifications to champions or systems in the game with the intent of making the game more balanced and fun to play. These patches are released on a (approximately) two week cycle, which makes them an effective method of analyzing the peaks and valleys of the League pro scene.
 
-Below, we can see the number of games played on each patch. From this, we can see that many games were played on the patches at the beginning of the year, then fewer game were played, but games spiked around patch 12.12 or 12.13.
+Below, we can see the number of games played on each patch. From this, we can see that many games were played on the patches at the beginning of the year, then fewer games were played, but then games spiked again around patch 12.12 thus depicting a bimodal distribution.
 
-There is also a spike around 12.17 to 12.18, which corresponds to the patches that were released right before Worlds (the world championships).
+There is also a small spike from 12.17 to 12.18, which corresponds to the patches that were released right before Worlds (the world championships).
 
 <iframe src="assets/fig/patch_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
-Another statistic we could analyze is which champions had the highest win rates. To ensure that we only analyze champions with a decent sample size, we will take the champions with at least 100 picks from `'champ_counts'`. The graph containing all champions can be seen below:
+<br>
+<br>
+
+
+Another statistic we could analyze is which champions had the highest win rates. To ensure that we only analyze champions with a decent sample size, we will take the champions with at least 100 picks according to our univariate analysis from earlier (Number of Times Picked for Each Champion). The graph containing these champions can be seen below:
 
 <iframe src="assets/fig/champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
 
-There are still very many champions that fall under this criteria. Like before, let's only look at the champions with the highest and lowest fifteen winrates.
+There are still very many champions that fall under this criteria, causing our graph to be dense with bars. Like before, let's only look at the champions with the highest and lowest fifteen win rates.
 
 The top 15 are here:
 <iframe src="assets/fig/top_champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
 
-And the bottom fifteen are here:
+And the bottom 15 are here:
 <iframe src="assets/fig/bot_champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
 
-Keep in mind that winrate is not the only factor that determines the strength of a champion. Some champions are only played as counters to other champions, and thus naturally have a higher winrate, since players only play those champions into favorable matchups.
+Unlike our univariate analysis of champion pick counts, we see that win rates for each champion has a much smaller variance.
 
-For example, the pick rate of Darius, the champion with the highest winrate, is very low--only 181 games. This is because in many cases, Darius is picked only when the player picking him knows--based the enemy team's champion picks and bans--that they will be able to perform well on him.
+Keep in mind that win rate is not the only factor that determines the strength of a champion. Some champions are only played as counters to other champions, and thus naturally have a higher win rate, since players only play those champions into favorable matchups.
+
+For example, the pick rate of Darius, the champion with the highest win rate, is very low--only 181 games. This is because in many cases, Darius is picked only when the player selecting him knows that they will be able to perform well with him based the enemy team's champion picks and bans.
 
 ### **Interesting Aggregates** <a name="aggr">
 
@@ -155,11 +162,9 @@ Let's take a look at how many games each team won with and without picking Renek
 
 From this table, we can see that teams often win more games when not picking Renekton than they do when picking Renekton. This seems inconsistent with our initial impression of Renekton--if he is such a strong champion in pro play, why are teams winning more games when they don't play him?
 
-<br>
-
 The answer is simple--teams simply play far more games without picking Renekton than they do when picking Renekton. 
 
-Let's modify our pivot table to instead show the number of games each team **played** with and without Renekton.
+Let's modify our pivot table to instead show the number of games each team played **with** and **without** Renekton.
 
 **Picked Renekton Count**
 
@@ -199,23 +204,24 @@ Indeed, if we divide the values in the first table by the values in the second t
 
 We can see that in some cases, the teams win a greater percentage of their games when they pick Renekton, and in other cases, they win a greater percentage when they don't pick Renekton.
 
-<br>
-
 The NaN values in this case represent situations where teams did not pick Renekton, and thus have an undefined win rate with him.
 
 ## **Assessment of Missingness** <a name="assess_missingness"></a>
-Some of the data in our dataset are missing; however, we don't necessarily know whether there is an explicit pattern to this missingness, or whether these data are missing at random (either completely or conditional on the values in another column).
+Some of the data in our dataset are missing; however, at first glace we do not necessarily know whether there is an explicit pattern to this missingness, or whether these data are missing at random (either completely or conditional on the values in another column).
 
 ### **NMAR Analysis** <a name="NMAR"></a>
-We can conclude, based on domain knowledge, that the values in the `'teamname'` column are likely not missing at random, or NMAR. More popular teams, such as T1 or Team Liquid, are less likely to have their team names missing, since their games are more likely to be covered. On the contrary, lesser known teams are less likely to have their games covered, so their team name is more likely to be missing.
+We can conclude, based on domain knowledge, that the values in the `'teamname'` column are likely not missing at random, or NMAR, since their missingness depends on the values themselves. More popular teams, such as T1 or Team Liquid, are less likely to have their team names missing since their games are more likely to be covered and receive more publicity. On the contrary, lesser known teams are less likely to have their games covered, so their team name is more likely to be missing.
 
 
 ### **Missingness Dependencys** <a name="missingness"></a>
-We will examine a few of the columns in our dataset to determine whether the values they are missing are dependent on another column, or missing at random (MAR). 
+We will examine a few of the columns in our dataset to determine whether the missingness dependent on another column, and therefore missing at random (MAR).
+In order to do this, we can run permutation tests between a column with missingness and columns with complete data. One such column with missingness is `'playerid'`.
 
-#### **Reject the Null** <a name="reject_null"></a>
+#### **Comparing Missingness of `'playerid'` to `'league'`** <a name="reject_null"></a>
 
-**Comparing missingness of `'playerid'` to `'league'`**
+We will operate on the following hypotheses:
+* **Null Hypothesis:** The distribution of a column with complete data when 'playerid' data is missing is the same as the distribution of when 'playerid' is not missing.
+* **Alternative Hypothesis:** The distribution of a column with complete data when 'playerid' data is missing is _not_ the same as the distribution of when 'playerid' is not missing.
 
 | league   |   playerid_missing = False |   playerid_missing = True |
 |:---------|---------------------------:|--------------------------:|
@@ -235,9 +241,7 @@ We will examine a few of the columns in our dataset to determine whether the val
 
 <iframe src="assets/fig/league_id_missingness.html" width=800 height=600 frameBorder=0></iframe>
 
-#### **Fail to Reject the Null** <a name="fail_reject_null"></a>
-
-**Compare missingness of `playerid` to `side`**
+#### **Compare missingness of `'playerid'` to `'side'`** <a name="fail_reject_null"></a>
 
 | side   |   playerid_missing = False |   playerid_missing = True |
 |:-------|---------------------------:|--------------------------:|

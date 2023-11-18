@@ -203,12 +203,14 @@ We can see that in some cases, the teams win a greater percentage of their games
 The NaN values in this case represent situations where teams did not pick Renekton, and thus have an undefined win rate with him.
 
 ## **Assessment of Missingness** <a name="assess_missingness"></a>
-explain importance of missingness analysis/types of misssingness
+Some of the data in our dataset are missing; however, we don't necessarily know whether there is an explicit pattern to this missingness, or whether these data are missing at random (either completely or conditional on the values in another column).
 
 ### **NMAR Analysis** <a name="NMAR"></a>
+We can conclude, based on domain knowledge, that the values in the `'teamname'` column are likely not missing at random, or NMAR. More popular teams, such as T1 or Team Liquid, are less likely to have their team names missing, since their games are more likely to be covered. On the contrary, lesser known teams are less likely to have their games covered, so their team name is more likely to be missing.
+
 
 ### **Missingness Dependencys** <a name="missingness"></a>
-explain our null vs alt hypothesis
+We will examine a few of the columns in our dataset to determine whether the values they are missing are dependent on another column, or missing at random (MAR). 
 
 #### **Reject the Null** <a name="reject_null"></a>
 

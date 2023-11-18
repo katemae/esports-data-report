@@ -217,13 +217,15 @@ We can conclude, based on domain knowledge, that the values in the `'teamname'` 
 
 ### **Missingness Dependencys** <a name="missingness"></a>
 We will examine a few of the columns in our dataset to determine whether the missingness dependent on another column, and therefore missing at random (MAR).
-In order to do this, we can run permutation tests between a column with missingness and columns with complete data and draw conclusions from the observed total variation distance (TVD) in comparison to the simmulated TVDs. One such column with missingness that we may test this on is `'playerid'`.
+In order to do this, we can run permutation tests between a column with missingness and columns with complete data and draw conclusions from the observed total variation distance (TVD) in comparison to the simmulated TVDs. One such column with missingness that we may test this on is `'playerid'`. This could be because the player is unregistered, the data were simply not collected, or certain leagues have a higher chance of not recording data for players--we don't really know what it could be.
 
 In the following, we will work with a significance level of 0.01, or 1%.
 
 #### **Comparing Missingness of `'playerid'` to `'league'`** <a name="reject_null"></a>
 
-We will operate on the following hypotheses:
+Because certain players are more likely to play in specific leagues, it is possible that the missingness of the 'playerid' column will have a connection to `'league`'.
+
+For this test, we will operate on the following hypotheses:
 * **Null Hypothesis:** The distribution of `'league'` when `'playerid'` data is missing is the same as the distribution of `'league'` when `'playerid'` is not missing.
 * **Alternative Hypothesis:** The distribution of `'league'` when `'playerid'` data is missing is **_NOT_** the same as the distribution of `'league'` when `'playerid'` is not missing.
 
@@ -255,7 +257,9 @@ The distribution of `'league'` when `'playerid'` data is missing is not the same
 
 #### **Compare missingness of `'playerid'` to `'side'`** <a name="fail_reject_null"></a>
 
-We will operate on the following hypotheses:
+When playing a game of League of Legends, the side of the map that each team plays on (commonly referred to as 'red side' or 'blue side') is decided before the game by a coin toss. Theoretically, this should not impact the missingness of the 'playerid' column, since the side is chosen randomly right before the game starts.
+
+For this test, we will operate on the following hypotheses:
 * **Null Hypothesis:** The distribution of `'side'` when `'playerid'` data is missing is the same as the distribution of `'side'` when `'playerid'` is not missing.
 * **Alternative Hypothesis:** The distribution of `'side'` when `'playerid'` data is missing is **_NOT_** the same as the distribution of `'side'` when `'playerid'` is not missing.
 

@@ -99,7 +99,7 @@ However, it must be noted that simply the pick rate of a champion does not on it
 Next, we can examine how long pro League games usually go on for.
 
 Below is a box plot depicting the distribution of game times (in minutes) of games played during the 2022 season.
-[comment]: <> (Feel free to remove this plot)
+
 <iframe src="assets/fig/game_times_fig.html" width=800 height=600 frameBorder=0></iframe>
 
 As we can see here, many pro League games average to around 30 minutes in length, with a roughly right skewed distribution. This is important to consider because certain champions (like Renekton) are stronger in the earlier stages of the game (i.e. the first 25 or so minutes) than in the later stages of the game. If many games go on for a long time, then it may affect Renekton's overall strength, and by extension, whether he received buffs before Worlds.
@@ -114,7 +114,6 @@ Below, we can see the number of games played on each patch. From this, we can se
 
 There is also a spike around 12.17 to 12.18, which corresponds to the patches that were released right before Worlds (the world championships).
 
-[comment]: <> (Feel free to remove this plot)
 <iframe src="assets/fig/patch_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
 Another statistic we could analyze is which champions had the highest win rates. To ensure that we only analyze champions with a decent sample size, we will take the champions with at least 100 picks from `'champ_counts'`. The graph containing all champions can be seen below:
@@ -182,6 +181,7 @@ There could be numerous reasons for a team playing many games without Renekton. 
 Indeed, if we divide the values in the first table by the values in the second table:
 
 **Renekton Win Rate**
+
 | teamname                  |    False |       True |
 |:--------------------------|---------:|-----------:|
 | 100 Thieves               | 0.56338  |   0.6      |

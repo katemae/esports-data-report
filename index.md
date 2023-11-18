@@ -17,7 +17,7 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
     a. [NMAR Analysis](#NMAR) <br>
     b. [Missingness Dependency](#missingness) <br>
 &nbsp;  i.  [Comparing Missingness of `'playerid'` to `'league'`](#reject_null) <br>
-&nbsp;  ii. [Compare missingness of `'playerid'` to `'side'`](#fail_reject_null)
+&nbsp;  ii. [Compare Missingness of `'playerid'` to `'side'`](#fail_reject_null)
 6. [Hypothesis Testing](#hypothesis)<br>
     a. [Background Information](#bg_info) <br>
     b. [Permutation Testing](#permute_test)

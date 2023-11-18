@@ -17,7 +17,7 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
     a. [NMAR Analysis](#NMAR) <br>
     b. [Missingness Dependency](#missingness) <br>
 &nbsp;  i.  [Comparing Missingness of `'playerid'` to `'league'`](#reject_null) <br>
-&nbsp;  ii. [Fail to Reject the Null](#fail_reject_null)
+&nbsp;  ii. [Compare missingness of `'playerid'` to `'side'`](#fail_reject_null)
 6. [Hypothesis Testing](#hypothesis)
 
 ## **Introduction** <a name="introduction"></a>
@@ -215,7 +215,7 @@ We can conclude, based on domain knowledge, that the values in the `'teamname'` 
 
 ### **Missingness Dependencys** <a name="missingness"></a>
 We will examine a few of the columns in our dataset to determine whether the missingness dependent on another column, and therefore missing at random (MAR).
-In order to do this, we can run permutation tests between a column with missingness and columns with complete data. One such column with missingness is `'playerid'`.
+In order to do this, we can run permutation tests between a column with missingness and columns with complete data and draw conclusions from the observed total variation distance (TVD) in comparison to the simmulated TVDs. One such column with missingness that we may test this on is `'playerid'`.
 
 #### **Comparing Missingness of `'playerid'` to `'league'`** <a name="reject_null"></a>
 
@@ -241,15 +241,19 @@ To start off, let's take a look at the distribution of `'league'` when `'playeri
 
 <iframe src="assets/fig/league_dist_fig.html" width=800 height=600 frameBorder=0></iframe>
 
-At first glance, we see a large variety of differences between missing and non-missing `'playid'` distrubutions of `'league'` data. <br>
+At first glance, we see a large variety of differences between missing and non-missing `'playid'` distrubutions of `'league'` data, holding an observed TVD of 0.056972941528464466. <br>
 And after performing our permutation test:
 
 <iframe src="assets/fig/league_id_missingness.html" width=800 height=600 frameBorder=0></iframe>
 
-We observe a p-value of **0.0**, and so we reject the null. <br>
+We observe a p-value of **0.0**, and so we **reject** the null. <br>
 The distribution of `'league'` when `'playerid'` data is missing is not the same as the distribution of `'league'` when `'playerid'` is not missing, and therefore **the missingness of `'playerid'` may be dependent on `'league'`.**
 
 #### **Compare missingness of `'playerid'` to `'side'`** <a name="fail_reject_null"></a>
+
+We will operate on the following hypotheses:
+* **Null Hypothesis:** The distribution of `'side'` when `'playerid'` data is missing is the same as the distribution of `'side'` when `'playerid'` is not missing.
+* **Alternative Hypothesis:** The distribution of `'side'` when `'playerid'` data is missing is **_NOT_** the same as the distribution of `'side'` when `'playerid'` is not missing.
 
 | side   |   playerid_missing = False |   playerid_missing = True |
 |:-------|---------------------------:|--------------------------:|
@@ -258,7 +262,13 @@ The distribution of `'league'` when `'playerid'` data is missing is not the same
 
 <iframe src="assets/fig/side_dist_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+From the start, we see a that the distrubutions of `'league'` data based on the missingness of `'playerid'` is almost completely even with an observed TVD of 0.00038349595296663375. <br>
+And following our permutation test:
+
 <iframe src="assets/fig/side_id_missingness.html" width=800 height=600 frameBorder=0></iframe>
+
+We observe a p-value of **0.922**, and so we **fail to reject** the null. <br>
+The distribution of `'side'` when `'playerid'` data is missing is the same as the distribution of `'side'` when `'playerid'` is not missing, and therefore **the missingness of `'playerid'` may not be dependent on `'side'`.**
 
 ## **Hypothesis Testing** <a name="hypothesis"></a>
 

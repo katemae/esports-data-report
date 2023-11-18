@@ -31,7 +31,7 @@ A somewhat popular joke among League players is that such "pro play champions" a
 **Is the champion Renekton "buffed" for World Championships?**
 
 ### **Description of Raw Data** <a name="data_desc"></a>
-In order to answer this question, we will be using data from the 2022 League of Legends competitive matches provided by [Oracle's Elixir](https://oracleselixir.com/). The raw data set includes 123 columns of game statistics ranging from first bloods to kill-to-death ratios, with every 12 rows being data for two teams going head to head in one game. To break it down further, every 6 rows are statistics for the 5 players in a team plus a row for team aggregate statistics, and this goes on for a total of 149,400 rows corresponding to 12,450 different competitive matches!
+In order to answer this question, we will be using data from the 2022 League of Legends competitive matches provided by [Oracle's Elixir](https://oracleselixir.com/). The raw data set includes 123 columns of game statistics ranging from first bloods to kill and death counts, with every 12 rows being data for two teams going head to head in one game. These 12 rows can also be broken down into two groups of 6 rows, each of which consists of individual statistics for the 5 players in a team plus a row for team aggregate statistics over that game, and this goes on for a total of 149,400 rows corresponding to 12,450 different competitive matches!
 
 For the purposes of our analysis, we will not be using a majority of these columns and will focus on a select few:
 

@@ -18,7 +18,9 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
     b. [Missingness Dependency](#missingness) <br>
 &nbsp;  i.  [Comparing Missingness of `'playerid'` to `'league'`](#reject_null) <br>
 &nbsp;  ii. [Compare missingness of `'playerid'` to `'side'`](#fail_reject_null)
-6. [Hypothesis Testing](#hypothesis)
+6. [Hypothesis Testing](#hypothesis)<br>
+    a. [Background Information](#bg_info) <br>
+    b. [Permutation Testing](#permute_test)
 
 ## **Introduction** <a name="introduction"></a>
 League of Legends is a game with an extremely diverse cast of characters or "champions," each with their own strengths. Some have very high damage, but lack defenses. Some do not deal as much damage, but are very durable and have a variety of disruption tools. Certain champions have characteristics that make them very strong when played in a coordinated team setting. For example, Jinx can output a massive amount of damage from a long distance, but she often requires her teammates to protect her since she can be killed very quickly. Such champions are picked very often by professional players, who can rely on their teammates to coordinate with them.
@@ -217,6 +219,8 @@ We can conclude, based on domain knowledge, that the values in the `'teamname'` 
 We will examine a few of the columns in our dataset to determine whether the missingness dependent on another column, and therefore missing at random (MAR).
 In order to do this, we can run permutation tests between a column with missingness and columns with complete data and draw conclusions from the observed total variation distance (TVD) in comparison to the simmulated TVDs. One such column with missingness that we may test this on is `'playerid'`.
 
+In the following, we will work with a significance level of 0.01, or 1%.
+
 #### **Comparing Missingness of `'playerid'` to `'league'`** <a name="reject_null"></a>
 
 We will operate on the following hypotheses:
@@ -270,32 +274,37 @@ And following our permutation test:
 We observe a p-value of **0.922**, and so we **fail to reject** the null. <br>
 The distribution of `'side'` when `'playerid'` data is missing is the same as the distribution of `'side'` when `'playerid'` is not missing, and therefore **the missingness of `'playerid'` may not be dependent on `'side'`.**
 
+<br>
+<br>
+
+From these permutation tests, we can now conclude that `'playerid'` is MAR, or missing at random, from the dataset.
+
 ## **Hypothesis Testing** <a name="hypothesis"></a>
 
 Now, let's begin answering our core question: Is it true that Renekton was buffed for Worlds in 2022?
 
-To do this, we will attempt to quantify the overall presence of Renekton during the first half of the year and compare it to the second half of the year. Since the World Championships take place at the end of the year, if Renekton was really buffed in the patches leading up to Worlds, he should have a greater presence during the second half of the year than the first half of the year. 
+To do this, we will attempt to quantify the overall presence of Renekton during the first half of the year and compare it to the second half of the year. Since the World Championships take place at the end of the year, if Renekton was really buffed in the patches leading up to Worlds then he should have a greater presence during the second half of the year than the first half of the year. 
 
-<br>
+### **Background Information** <a name="bg_info"></a>
 
 As mentioned earlier, to measure the overall presence of a champion, we must look at a statistic other than pick rates and win rates. A common statistic used in the League community to measure the prescence of a champion is the **pick/ban rate**, which is calculated as the proportion of games in which the champion was either picked or banned. Champions with high pick/ban rates are often very dominant, since teams will want to either utilize the champion's strength or prevent their enemy from doing so. We will use the pick/ban rate as the test statistic for our analysis.
 
 In summary, we want to find whether Renekton's pick/ban rate is significantly greater during the second half of the year (that is, patches 12.13 through 12.23) than in the first half of the year (12.01 through 12.12). We choose to separate this way because patch 12.12 was released at the very end of June.
 
-<br>
+### **Permutation Testing** <a name="permute_test"></a>
 
 Our null and alternate hypotheses are:
 
-**Null hypothesis**: Renekton's pick/ban rate does not change during the year.
+- **Null hypothesis**: Renekton's pick/ban rate does not change during the year.
+- **Alternate hypothesis**: Renekton's pick/ban rate is greater during the second half of the year than the first half of the year.
+- **Our chosen test statistic**: The difference between the pick/ban rates during patches 12.13 to 12.23 and the pick/ban rates during patches 12.01 to 12.12
 
-**Alternate hypothesis**: Renekton's pick/ban rate is the greater during the second half of the year than the first half of the year.
+We will continue to work with a significance level of **0.01, or 1%**, for this permutation test.
 
-**Our chosen test statistic**: the difference between the pick/ban rates during patches 12.13 to 12.23 and the pick/ban rates during patches 12.01 to 12.12
+<br>
+<br>
 
-We will work with a significance level of **0.01, or 1%**, for this permutation test.
-
-Our observed statistic--the overall difference in the pick/ban rates across the entire dataset--is 0.038.
-
+Our observed statistic--the overall difference in the pick/ban rates across the entire dataset--is 0.038313788572777535. <br>
 After shuffling the `'patch'` column of the dataset and recording the test statistic on each shuffled DataFrame 500 times, we obtained the following distribution of test statistics:
 
 <iframe src="assets/fig/overall_ht.html" width=800 height=600 frameBorder=0></iframe>
@@ -306,13 +315,11 @@ When we compare our observed statistic to the ones we obtained through permutati
 
 We can see that our observed statistic is extremely significant--that is, it is highly unlikely that our data was obtained from a distribution in which Renekton's pick/ban rate was the same throughout the year.
 
-Our p-value of 0.0 (so small that it is essentially zero) confirms this, since it is lower than our significance level of 0.01.
+Our p-value of 0.0 confirms this, since it is lower than our significance level of 0.01.
 
 <br>
 
-With this data, we have enough evidence to reject the null hypothesis that Renekton's pick/ban rate does not change over the year.
-
-Through doing this permutation test, we have cast doubt on the claim that Renekton's presence in the League of Legends professional scene does not increase in the second half of the year.
+With this data, we have enough evidence to reject the null hypothesis that Renekton's pick/ban rate does not change over the year. Through doing this permutation test, we have cast doubt on the claim that Renekton's presence in the League of Legends professional scene does not increase in the second half of the year.
 
 <br>
 

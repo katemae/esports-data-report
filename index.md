@@ -275,7 +275,7 @@ And following our permutation test:
 
 <iframe src="assets/fig/side_id_missingness.html" width=800 height=600 frameBorder=0></iframe>
 
-We observe a p-value of **0.922**, and so we **fail to reject** the null. <br>
+We observe a p-value of **0.916**, and so we **fail to reject** the null. <br>
 The distribution of `'side'` when `'playerid'` data is missing is the same as the distribution of `'side'` when `'playerid'` is not missing, and therefore **the missingness of `'playerid'` may not be dependent on `'side'`.**
 
 <br>

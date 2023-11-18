@@ -58,6 +58,10 @@ The columns in our cleaned data set are:
 ## **Cleaning and EDA** <a name="cleaning"></a>
 ### **Data Cleaning** <a name="data_clean">
 
+As mentioned earlier, this dataset contains far more information than what is necessary to answer our core question. For the purposes of this analysis, we removed rows containing aggregate team statistics, as well as the columns `'datacompleteness'`, `'url'`, `'participantid'`, `'year'`, `'split'`, `'playoffs'`, and `'game'`. We also ignored the columns that refer to other game statistics, such as gold difference, dragons, towers, etc., since they will also not factor into our analysis. Additionally, we cast the values in the `'result'` column, which contained ones and zeroes, to booleans, and renamed that column to `'win'` to make its values make more sense.
+
+We removed the unnecessary rows and columns in the raw data, modified the `'result'` column, and stored the values we obtained in the DataFrame `'league`', which can be seen below:
+
 |        | gameid                | league   | split   | playoffs   | date                |   patch | side   | position   | playername   | playerid                                  | teamname                 | teamid                                  | champion   | ban1    | ban2    | ban3   | ban4   | ban5   |   gamelength | win   |
 |-------:|:----------------------|:---------|:--------|:-----------|:--------------------|--------:|:-------|:-----------|:-------------|:------------------------------------------|:-------------------------|:----------------------------------------|:-----------|:--------|:--------|:-------|:-------|:-------|-------------:|:------|
 |      0 | ESPORTSTMNT01_2690210 | LCKC     | Spring  | False      | 2022-01-10 07:44:08 |   12.01 | Blue   | top        | Soboro       | oe:player:38e0af7278d6769d0c81d7c4b47ac1e | Fredit BRION Challengers | oe:team:68911b3329146587617ab2973106e23 | Renekton   | Karma   | Caitlyn | Syndra | Thresh | Lulu   |         1713 | False |
@@ -74,14 +78,31 @@ The columns in our cleaned data set are:
 
 ### **Univariate Analysis** <a name="uni_analysis">
 
+We can look at the counts of each value in the `'champions'` column to see which champions were picked the most often during the 2022 season. The graph containing all champions can be seen below:
+
 <iframe src="assets/fig/champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+League of Legends has over 160 playable champions, which makes this graph rather difficult to read. To make it simpler, let's look at only the fifteen most and least picked champions.
+
+The graph displaying the 15 most picked champions cna be seen here:
 <iframe src="assets/fig/top_champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+And the graph displaying the 15 least picked champions cna be seen here:
 <iframe src="assets/fig/bot_champ_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+These graphs shows that champions such as Nautilus and Jinx were picked very often, possibly alluding to their overall strength in pro games. Meanwhile, champions such as Warwick and Teemo are not picked very often. Our main focus, Renekton, sits around the middle of the graph.
+
+<br>
+
+However, it must be noted that simply the pick rate of a champion does not on its own correlate to their strength. Many times, popular champions will be "banned" from being chosen, so to examine the overall prescence of any given champion, we can look at a different statistic that takes this into account (but we will get to this later, during the hypothesis testing section).
+
+Next, we can examine how long pro League games usually go on for.
+
+Below is a box plot depicting the distribution of game times (in minutes) of games played during the 2022 season.
 [comment]: <> (Feel free to remove this plot)
 <iframe src="assets/fig/game_times_fig.html" width=800 height=600 frameBorder=0></iframe>
+
+As we can see here, many pro League games average to around 30 minutes in length, with a roughly right skewed distribution. This is important to consider because certain champions (like Renekton) are stronger in the earlier stages of the game (i.e. the first 25 or so minutes) than in the later stages of the game. If many games go on for a long time, then it may affect Renekton's overall strength, and by extension, whether he received buffs before Worlds.
 
 ### **Bivariate Analysis** <a name="bi_analysis">
 

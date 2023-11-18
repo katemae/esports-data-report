@@ -160,7 +160,7 @@ Let's take a look at how many games each team won with and without picking Renek
 | İstanbul Wildcats         |      40 |      2 |
 | İstanbul Wildcats Academy |      25 |      1 |
 
-From this table, we can see that teams often win more games when not picking Renekton than they do when picking Renekton. This seems inconsistent with our initial impression of Renekton--if he is such a strong champion in pro play, why are teams winning more games when they don't play him?
+From this table, we can see that teams often win more games when not picking Renekton than they do when picking Renekton. This seems inconsistent with our initial impression of Renekton--if he is such a strong champion in pro play, why are teams winning more games when they don not play him?
 
 The answer is simple--teams simply play far more games without picking Renekton than they do when picking Renekton. 
 
@@ -202,7 +202,7 @@ Indeed, if we divide the values in the first table by the values in the second t
 | İstanbul Wildcats         | 0.701754 |   0.333333 |
 | İstanbul Wildcats Academy | 0.641026 |   0.25     |
 
-We can see that in some cases, the teams win a greater percentage of their games when they pick Renekton, and in other cases, they win a greater percentage when they don't pick Renekton.
+We can see that in some cases, the teams win a greater percentage of their games when they pick Renekton, and in other cases, they win a greater percentage when they do not pick Renekton.
 
 The NaN values in this case represent situations where teams did not pick Renekton, and thus have an undefined win rate with him.
 
@@ -220,8 +220,10 @@ In order to do this, we can run permutation tests between a column with missingn
 #### **Comparing Missingness of `'playerid'` to `'league'`** <a name="reject_null"></a>
 
 We will operate on the following hypotheses:
-* **Null Hypothesis:** The distribution of a column with complete data when 'playerid' data is missing is the same as the distribution of when 'playerid' is not missing.
-* **Alternative Hypothesis:** The distribution of a column with complete data when 'playerid' data is missing is _not_ the same as the distribution of when 'playerid' is not missing.
+* **Null Hypothesis:** The distribution of `'league'` when `'playerid'` data is missing is the same as the distribution of `'league'` when `'playerid'` is not missing.
+* **Alternative Hypothesis:** The distribution of `'league'` when `'playerid'` data is missing is **_NOT_** the same as the distribution of `'league'` when `'playerid'` is not missing.
+
+To start off, let's take a look at the distribution of `'league'` when `'playerid'` is missing versus when it is not missing:
 
 | league   |   playerid_missing = False |   playerid_missing = True |
 |:---------|---------------------------:|--------------------------:|
@@ -239,7 +241,13 @@ We will operate on the following hypotheses:
 
 <iframe src="assets/fig/league_dist_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+At first glance, we see a large variety of differences between missing and non-missing `'playid'` distrubutions of `'league'` data. <br>
+And after performing our permutation test:
+
 <iframe src="assets/fig/league_id_missingness.html" width=800 height=600 frameBorder=0></iframe>
+
+We observe a p-value of **0.0**, and so we reject the null. <br>
+The distribution of `'league'` when `'playerid'` data is missing is not the same as the distribution of `'league'` when `'playerid'` is not missing, and therefore **the missingness of `'playerid'` may be dependent on `'league'`.**
 
 #### **Compare missingness of `'playerid'` to `'side'`** <a name="fail_reject_null"></a>
 

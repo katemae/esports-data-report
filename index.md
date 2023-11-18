@@ -106,17 +106,36 @@ As we can see here, many pro League games average to around 30 minutes in length
 
 ### **Bivariate Analysis** <a name="bi_analysis">
 
+We can also take a look at the distribution of games played on each patch.
+
+Patches are modifications to champions or systems in the game with the intent of making the game more balanced and fun to play. These patches are released on a (approximately) two week cycle, which makes them an effective method of analyzing the peaks and valleys of the League pro scene.
+
+Below, we can see the number of games played on each patch. From this, we can see that many games were played on the patches at the beginning of the year, then fewer game were played, but games spiked around patch 12.12 or 12.13.
+
+There is also a spike around 12.17 to 12.18, which corresponds to the patches that were released right before Worlds (the world championships).
+
 [comment]: <> (Feel free to remove this plot)
 <iframe src="assets/fig/patch_counts_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+Another statistic we could analyze is which champions had the highest win rates. To ensure that we only analyze champions with a decent sample size, we will take the champions with at least 100 picks from `'champ_counts'`. The graph containing all champions can be seen below:
+
 <iframe src="assets/fig/champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+There are still very many champions that fall under this criteria. Like before, let's only look at the champions with the highest and lowest fifteen winrates.
+
+The top 15 are here:
 <iframe src="assets/fig/top_champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+And the bottom fifteen are here:
 <iframe src="assets/fig/bot_champ_wins_fig.html" width=800 height=600 frameBorder=0></iframe>
 
+Keep in mind that winrate is not the only factor that determines the strength of a champion. Some champions are only played as counters to other champions, and thus naturally have a higher winrate, since players only play those champions into favorable matchups.
+
+For example, the pick rate of Darius, the champion with the highest winrate, is very low--only 181 games. This is because in many cases, Darius is picked only when the player picking him knows--based the enemy team's champion picks and bans--that they will be able to perform well on him.
 
 ### **Interesting Aggregates** <a name="aggr">
+
+Let's take a look at how many games each team won with and without picking Renekton.
 
 **Won With Renekton Count**
 
@@ -134,6 +153,14 @@ As we can see here, many pro League games average to around 30 minutes in length
 | İstanbul Wildcats         |      40 |      2 |
 | İstanbul Wildcats Academy |      25 |      1 |
 
+From this table, we can see that teams often win more games when not picking Renekton than they do when picking Renekton. This seems inconsistent with our initial impression of Renekton--if he is such a strong champion in pro play, why are teams winning more games when they don't play him?
+
+<br>
+
+The answer is simple--teams simply play far more games without picking Renekton than they do when picking Renekton. 
+
+Let's modify our pivot table to instead show the number of games each team **played** with and without Renekton.
+
 **Picked Renekton Count**
 
 | teamname                  |   False |   True |
@@ -150,6 +177,10 @@ As we can see here, many pro League games average to around 30 minutes in length
 | İstanbul Wildcats         |      57 |      6 |
 | İstanbul Wildcats Academy |      39 |      4 |
 
+There could be numerous reasons for a team playing many games without Renekton. For example, the opposing team may have simply chosen to ban Renekton. If they did not ban Renekton, they likely deliberately chose champions that fared well against Renekton, thus making Renekton a less viable choice.
+
+Indeed, if we divide the values in the first table by the values in the second table:
+
 **Renekton Win Rate**
 | teamname                  |    False |       True |
 |:--------------------------|---------:|-----------:|
@@ -164,6 +195,12 @@ As we can see here, many pro League games average to around 30 minutes in length
 | unknown team              | 0.540925 |   0.615385 |
 | İstanbul Wildcats         | 0.701754 |   0.333333 |
 | İstanbul Wildcats Academy | 0.641026 |   0.25     |
+
+We can see that in some cases, the teams win a greater percentage of their games when they pick Renekton, and in other cases, they win a greater percentage when they don't pick Renekton.
+
+<br>
+
+The NaN values in this case represent situations where teams did not pick Renekton, and thus have an undefined win rate with him.
 
 ## **Assessment of Missingness** <a name="assess_missingness"></a>
 explain importance of missingness analysis/types of misssingness
@@ -210,8 +247,50 @@ explain our null vs alt hypothesis
 
 ## **Hypothesis Testing** <a name="hypothesis"></a>
 
+Now, let's begin answering our core question: Is it true that Renekton was buffed for Worlds in 2022?
+
+To do this, we will attempt to quantify the overall presence of Renekton during the first half of the year and compare it to the second half of the year. Since the World Championships take place at the end of the year, if Renekton was really buffed in the patches leading up to Worlds, he should have a greater presence during the second half of the year than the first half of the year. 
+
+<br>
+
+As mentioned earlier, to measure the overall presence of a champion, we must look at a statistic other than pick rates and win rates. A common statistic used in the League community to measure the prescence of a champion is the **pick/ban rate**, which is calculated as the proportion of games in which the champion was either picked or banned. Champions with high pick/ban rates are often very dominant, since teams will want to either utilize the champion's strength or prevent their enemy from doing so. We will use the pick/ban rate as the test statistic for our analysis.
+
+In summary, we want to find whether Renekton's pick/ban rate is significantly greater during the second half of the year (that is, patches 12.13 through 12.23) than in the first half of the year (12.01 through 12.12). We choose to separate this way because patch 12.12 was released at the very end of June.
+
+<br>
+
+Our null and alternate hypotheses are:
+
+**Null hypothesis**: Renekton's pick/ban rate does not change during the year.
+
+**Alternate hypothesis**: Renekton's pick/ban rate is the greater during the second half of the year than the first half of the year.
+
+**Our chosen test statistic**: the difference between the pick/ban rates during patches 12.13 to 12.23 and the pick/ban rates during patches 12.01 to 12.12
+
+We will work with a significance level of **0.01, or 1%**, for this permutation test.
+
+Our observed statistic--the overall difference in the pick/ban rates across the entire dataset--is 0.038.
+
+After shuffling the `'patch'` column of the dataset and recording the test statistic on each shuffled DataFrame 500 times, we obtained the following distribution of test statistics:
+
 <iframe src="assets/fig/overall_ht.html" width=800 height=600 frameBorder=0></iframe>
 
+When we compare our observed statistic to the ones we obtained through permutation testing:
+
 <iframe src="assets/fig/hyp_testing.html" width=800 height=600 frameBorder=0></iframe>
+
+We can see that our observed statistic is extremely significant--that is, it is highly unlikely that our data was obtained from a distribution in which Renekton's pick/ban rate was the same throughout the year.
+
+Our p-value of 0.0 (so small that it is essentially zero) confirms this, since it is lower than our significance level of 0.01.
+
+<br>
+
+With this data, we have enough evidence to reject the null hypothesis that Renekton's pick/ban rate does not change over the year.
+
+Through doing this permutation test, we have cast doubt on the claim that Renekton's presence in the League of Legends professional scene does not increase in the second half of the year.
+
+<br>
+
+However, it is important to note that this test does not necessarily *prove* that Renekton was "buffed for worlds". We have simply obtained evidence that supports this hypothesis.
 
 

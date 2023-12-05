@@ -8,17 +8,17 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
 1. [Introduction](#introduction) <br>
     a. [Description of Raw Data](#data_desc) <br>
     b. [Description of Columns](#col_desc)
-3. [Cleaning and EDA](#cleaning) <br>
+2. [Cleaning and EDA](#cleaning) <br>
     a. [Data Cleaning](#data_clean) <br>
     b. [Univariate Analysis](#uni_analysis) <br>
     c. [Bivariate Analysis](#bi_analysis) <br>
     d. [Interesting Aggregates](#aggr)
-5. [Assessment of Missingness](#assess_missingness) <br>
+3. [Assessment of Missingness](#assess_missingness) <br>
     a. [NMAR Analysis](#NMAR) <br>
     b. [Missingness Dependency](#missingness) <br>
 &nbsp;  i.  [Comparing Missingness of `'playerid'` to `'league'`](#reject_null) <br>
 &nbsp;  ii. [Compare Missingness of `'playerid'` to `'side'`](#fail_reject_null)
-6. [Hypothesis Testing](#hypothesis)<br>
+4. [Hypothesis Testing](#hypothesis)<br>
     a. [Background Information](#bg_info) <br>
     b. [Permutation Testing](#permute_test)
 

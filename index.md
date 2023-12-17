@@ -1,10 +1,12 @@
 ### DSC 80 Project
 ***By Katelyn Abille and Aneesh Pamula*** <br> <br>
 Curated by students of DSC 80, this academic project is intended to demonstrate the process of cleaning and performing exploratory data analysis, assessing missingness, and conducting permutation tests. Our website stands as a holistic report of our findings.
-<br> <br> 
+> Our predictive modeling on this dataset can be found here:
+> <br> [Model Building: Predicting Champion Class Based on Post-Game Statistics]([https://katemae.github.io/esports-data-report/](https://katemae.github.io/esports-modeling/)).
 
+<br>
 
-### Table of contents
+### **Table of Contents**
 1. [Introduction](#introduction) <br>
     a. [Description of Raw Data](#data_desc) <br>
     b. [Description of Columns](#col_desc)
@@ -21,6 +23,8 @@ Curated by students of DSC 80, this academic project is intended to demonstrate 
 4. [Hypothesis Testing](#hypothesis)<br>
     a. [Background Information](#bg_info) <br>
     b. [Permutation Testing](#permute_test)
+
+<br>
 
 ## **Introduction** <a name="introduction"></a>
 League of Legends is a game with an extremely diverse cast of characters or "champions," each with their own strengths. Some have very high damage, but lack defenses. Some do not deal as much damage, but are very durable and have a variety of disruption tools. Certain champions have characteristics that make them very strong when played in a coordinated team setting. For example, Jinx can output a massive amount of damage from a long distance, but she often requires her teammates to protect her since she can be killed very quickly. Such champions are picked very often by professional players, who can rely on their teammates to coordinate with them.

@@ -2,7 +2,7 @@
 ***By Katelyn Abille and Aneesh Pamula*** <br> <br>
 Curated by students of DSC 80, this academic project is intended to demonstrate the process of cleaning and performing exploratory data analysis, assessing missingness, and conducting permutation tests. Our website stands as a holistic report of our findings.
 > Our predictive modeling on this dataset can be found here:
-> <br> [Model Building: Predicting Champion Class Based on Post-Game Statistics]([https://katemae.github.io/esports-data-report/](https://katemae.github.io/esports-modeling/)).
+> <br> [Model Building: Predicting Champion Class Based on Post-Game Statistics]([https://katemae.github.io/esports-data-report/](https://katemae.github.io/esports-modeling/))
 
 <br>
 
